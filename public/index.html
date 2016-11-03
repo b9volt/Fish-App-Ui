@@ -23,6 +23,7 @@
   </head>
   <body ng-controller="TripsController as trips">
     <header class="col-md-6 col-sm-12">
+            Angular is working: {{ 1 === 1 }}
       <h1>Welcome to BITE, {{ user.name }}!</h1>
     </header>
     <main>
@@ -39,8 +40,8 @@
         </nav>
       </div>
       <section ui-view></section>
-      <!-- Angular is working: {{ 1 === 1 }}
-      {{ trips.tripData }} -->
+
+      <!-- {{ trips.tripData }} -->
     </main>
     <footer><p>"Good luck out there, and don't let the Megalodon eat ya' fer dinner!"</p></footer>
   </body>
