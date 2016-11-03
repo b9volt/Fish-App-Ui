@@ -2,17 +2,24 @@
   angular.module('FishBiApp',['ui.router'])
     .config(FishRouter);
 
-  function FishRouter($stateProvider, $urlRouterProvider) {
-  //   $urlRouterProvider.otherwise("/index");
-  //
-  //   $stateProvider
-  //   .state('index', {
-  //     url: '/',
-  //     templateUrl: 'login.html'
-  //   });
-  //
+  FishRouter.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+
+  function FishRouter($stateProvider, $urlRouterProvider, $locationProvider) {
+    $urlRouterProvider.otherwise("/");
+
+    $stateProvider
+    .state('login', {
+      url: '/',
+      templateUrl: 'login.html'
+    });
+
   }
 
+
+$locationProvider.html5Mode({
+  enabled: true,
+  requireBase: false
+});
 
 
 })()
