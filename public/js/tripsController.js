@@ -1,14 +1,16 @@
 (function() {
-  angular.module('FishBiApp',[])
+  angular.module('FishBiApp')
     .controller('TripsController', TripsController);
 
-  function TripsController() {
+  TripsController.$inject = ['$http', '$window', '$location'];
+
+  function TripsController($http, $window, $location) {
     var self = this;
 
     this.tripData = null;
 
     this.getFishingTrips = function(){
-      
+
     };
 
   } //end TripsController
