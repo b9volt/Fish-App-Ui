@@ -4,7 +4,7 @@ var path = require('path');
 var logger = require('morgan');
 var app = express();
 var moment = require('moment-timezone');
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 4000;
 
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname,'public')))

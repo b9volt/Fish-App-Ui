@@ -7,10 +7,9 @@
 
     this.tripData = null;
 
-    this.getFishingTrips(userId) = {
-      this.tripData = fakeData;
+    this.getFishingTrips = function(){
+      
     };
-
 
   } //end TripsController
 })()
