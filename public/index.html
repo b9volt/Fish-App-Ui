@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html ng-app="FishBiApp">
   <head>
+    <!-- load fake data -->
+    <script src="fakeData.js" charset="utf-8"></script>
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js" charset="utf-8"></script>
     <script src="./js/main.js" charset="utf-8"></script>
     <link rel="stylesheet" href="./css/main.css" media="screen" title="no title">
     <script src="js/app.js" charset="utf-8"></script>
-    <script src="js/tripsController.js" charset="utf-8"></script>
+    <script src="js/tgripsController.js" charset="utf-8"></script>
     <meta charset="utf-8">
     <title>Fishing BI App</title>
   </head>
@@ -14,8 +19,9 @@
       Welcome to the fish app {{ username }}
     </header>
     <main>
-      Angular is working: {{ 1 === 1 }}
-      favoriteColor is {{ trips.favoriteColor }}
+      {{ trips.tripData }}
+
+
     </main>
   </body>
 </html>

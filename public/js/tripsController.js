@@ -5,6 +5,12 @@
   function TripsController() {
     var self = this;
 
-    this.favoriteColor = 'blue';
+    this.tripData = null;
+
+    this.getFishingTrips(userId) = {
+      this.tripData = fakeData;
+    };
+
+
   } //end TripsController
 })()
