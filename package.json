@@ -1,0 +1,24 @@
+{
+  "name": "fish-app-ui",
+  "version": "1.0.0",
+  "description": "Front end to the fish app",
+  "main": "server.js",
+  "scripts": {
+    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmurphree/Fish-App-Ui.git"
+  },
+  "author": "Brad Volts, Jesse Klein, and Tom Murphree",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tmurphree/Fish-App-Ui/issues"
+  },
+  "homepage": "https://github.com/tmurphree/Fish-App-Ui#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "moment-timezone": "^0.5.7",
+    "morgan": "^1.7.0"
+  }
+}
