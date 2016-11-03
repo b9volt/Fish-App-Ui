@@ -1,0 +1,26 @@
+<div>
+  <form ng-submit="auth.login(userPass)">
+    <div class ="">
+      <label for="username">username</label>
+      <input type="text" ng-model="userPass.username">
+    </div>
+    <div>
+      <label for="password">password</label>
+      <input type="password" ng-model="userPass.password">
+    </div>
+    <button type="submit">login</button>
+  </form>
+</div>
+<div>
+  <form ng-submit="auth.signup(userPass)">
+    <div>
+      <label for="username">username</label>
+      <input type="text" ng-model="userPass.username">
+    </div>
+    <div>
+      <label for="password">password</label>
+      <input type="password" ng-model="userPass.password">
+    </div>
+    <button type="submit">Register</button>
+  </form>
+</div>
