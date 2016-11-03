@@ -1,10 +1,28 @@
 (function() {
-  angular.module('FishBiApp',[])
+  angular.module('FishBiApp')
     .controller('TripsController', TripsController);
 
-  function TripsController() {
-    var self = this;
+  TripsController.$inject = ['$http', '$window', '$location'];
 
-    this.favoriteColor = 'blue';
+  function TripsController($http, $window, $location) {
+    var self = this;
+    var rootUrl = 'http://localhost:3000/users/1/trips'
+
+    this.tripData = [];
+
+
+    getFishingTrips = function(){
+      $http.get(rootUrl)
+        .then(function(response) {
+          self.tripData = response.data.trip;
+        })
+        .catch(function(err) {
+          console.log('err',err);
+        });
+    };
+
+
+    getFishingTrips();
+
   } //end TripsController
-})()
+})();
