@@ -6,13 +6,13 @@
 
   function TripsController($http, $window, $location) {
     var self = this;
-    var rootUrl = 'http://localhost:3000/users/1/trips'
+    var rootUrl = 'http://localhost:3000/'
 
     this.tripData = [];
 
 
-    getFishingTrips = function(){
-      $http.get(rootUrl)
+    getAllTrips = function(){
+      $http.get(rootUrl + '/users/1/trips')
         .then(function(response) {
           self.tripData = response.data.trip;
         })
@@ -21,8 +21,20 @@
         });
     };
 
+    /*
+    POST	/users/login
+    POST	/users/logoff
+    POST	/users
 
-    getFishingTrips();
+    GET	/users/:user_id/trips
+    POST	/users/:user_id/trips
+    GET	/users/:user_id/trips/:id
+    PATCH	/users/:user_id/trips/:id
+    DELETE	/users/:user_id/trips/:id
+    */
+
+
+    getAllTrips();
 
   } //end TripsController
 })();
