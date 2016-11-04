@@ -1,5 +1,5 @@
 (function() {
-  angular.module('FishBiApp',['ui.router'])
+  angular.module('FishBiApp',['ui.router', 'trips'])
     .config(FishRouter);
 
   FishRouter.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];

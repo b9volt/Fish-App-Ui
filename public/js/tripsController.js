@@ -1,13 +1,10 @@
 (function() {
-  angular.module('FishBiApp')
+  angular.module('trips',['ui.router'])
     .controller('TripsController', TripsController);
 
-  TripsController.$inject = ['$http', '$window', '$location', 'chartService', 'userIdService',
-                            '$state'
-                            ];
+  TripsController.$inject = ['$http', '$window', '$location', 'chartService', 'userIdService', '$state'];
 
-  function TripsController($http, $window, $location, chartService, userIdService,
-                          $state) {
+  function TripsController($http, $window, $location, chartService, userIdService, $state) {
     var self = this;
     var rootUrl = 'http://localhost:3000/';
 
@@ -39,7 +36,7 @@
           console.log('err',err);
         })
         .then(function(response) {
-          $state.go('/dashboard');
+          $state.go('dashboard', {url: '/dashboard'});
         });
 
     }; //end this.createTrip
