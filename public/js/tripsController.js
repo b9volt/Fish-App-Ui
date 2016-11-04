@@ -11,6 +11,9 @@
     this.tripData = [];
     this.test = chartService.foo("Brad and Tom are Cool!");
 
+    this.foo = 'asdfasd'
+
+
     getAllTrips = function(){
       $http.get(rootUrl + '/users/1/trips')
         .then(function(response) {

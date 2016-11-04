@@ -9,7 +9,7 @@
     google.charts.load('current', {'packages':['corechart']});
 
 
-      google.charts.setOnLoadCallback(drawHappinesPieChart);
+      //google.charts.setOnLoadCallback(drawHappinesPieChart);
       google.charts.setOnLoadCallback(drawVisualization);
       google.charts.setOnLoadCallback(drawChart);
 
@@ -38,7 +38,7 @@
         // Instantiate and draw the chart for Sarah's pizza.
         var chart = new google.visualization.PieChart(document.getElementById('Customer_chart_div'));
         chart.draw(data, options);
-      }
+      } //end drawHappinesPieChart
 
 
 
