@@ -9,12 +9,13 @@
     var rootUrl = 'http://localhost:3000/';
 
     function login(userPass) {
-      $http.post(`${rootUrl}/users/login`, {user: {username: userPass.username, password: userPass.password}})
+      $http.post(`${rootUrl}users/login`, {user: {username: userPass.username, password: userPass.password}})
         .then(function(response) {
           self.user = response.data.user
 
           localStorage.setItem('token', JSON.stringify(response.data.token))
-          $state.go('index', {url: '/', user: response.data.user})
+          console.log('self.user is: ', self.user);
+          $state.go('login', {url: '/', user: response.data.user})
         })
         .catch((err) => {
           console.log(err);
@@ -26,7 +27,7 @@
         .then(function(response) {
           console.log(response)
 
-          $state.go('login', {url: '/login'})
+          $state.go('login', {url: '/'})
         })
         .catch((err) => {
           console.log(err);
@@ -37,7 +38,7 @@
       // logout just deletes the token from localStorage
       localStorage.removeItem('token')
 
-      $state.go('index', {url: '/'})
+      $state.go('login', {url: '/'})
     }
 
     this.login = login;

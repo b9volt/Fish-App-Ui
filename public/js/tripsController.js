@@ -2,9 +2,12 @@
   angular.module('FishBiApp')
     .controller('TripsController', TripsController);
 
-  TripsController.$inject = ['$http', '$window', '$location', 'chartService', 'userIdService'];
+  TripsController.$inject = ['$http', '$window', '$location', 'chartService', 'userIdService',
+                            '$state'
+                            ];
 
-  function TripsController($http, $window, $location, chartService, userIdService) {
+  function TripsController($http, $window, $location, chartService, userIdService,
+                          $state) {
     var self = this;
     var rootUrl = 'http://localhost:3000/';
 

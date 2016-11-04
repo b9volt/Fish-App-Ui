@@ -1,18 +1,7 @@
 <section ng-controller="TripsController as trips">
-  <div class="form" ng-submit="trips.createTrip()">
+  <div class="form" >
     <h3>Enter Your New Trip Information</h3>
-    <form action="#">
-      <!--
-      :user_id,
-      :location,
-      :num_of_fish,
-      :clientsHappy,
-      :end,
-      :rating,
-      :start,
-      :summary,
-      :weather
-      -->
+    <form ng-submit="trips.createTrip()">
       <div>
         <label for="location">Location</label>
         <input type="text" ng-model="trips.newTrip.location">
