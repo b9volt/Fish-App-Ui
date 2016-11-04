@@ -2,61 +2,46 @@
   angular.module('FishBiApp')
     .controller('UsersController', UsersController);
 
-  UsersController.$inject = ['$http', '$window', '$location'];
+  UsersController.$inject = ['$http', '$state', '$stateParams'];
 
-  function UsersController($http, $window, $location) {
-
+  function UsersController($http, $state, $stateParams)  {
     var self = this;
-    var rootUrl = 'http://localhost:3000/'
+    var rootUrl = 'http://localhost:3000/';
 
-    this.test = 'Hello world from UsersController';
+    function login(userPass) {
+      $http.post(`${rootUrl}/users/login`, {user: {username: userPass.username, password: userPass.password}})
+        .then(function(response) {
+          self.user = response.data.user
 
-    this.signup = function() {
-      console.log('Hello from users.signup -- fthis');
-      console.log('data from the model is', self.signupUsername);
+          localStorage.setItem('token', JSON.stringify(response.data.token))
+          $state.go('index', {url: '/', user: response.data.user})
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
 
-      $http.post(rootUrl + '/users',
-        { user: {username: self.signupUsername, password: self.signupPassword }}
-      )
-      .then(function(response) {
-        console.log(response.data);
+    function signup(userPass) {
+      $http.post(`${rootUrl}/users`, {user: {username: userPass.username, password: userPass.password }})
+        .then(function(response) {
+          console.log(response)
 
-        //clear the form
-        this.signupUsername = '';
-        this.signupPassword = '';
-      })
-      .catch(function(err) {
-        console.log('err',err);
-      });
-    }; //this.signup
+          $state.go('login', {url: '/login'})
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
 
-    this.login = function() {
-      console.log('Hello from users.login -- fthis');
-      console.log('data from the model is', self.loginUsername);
+    function logout(userPass) {
+      // logout just deletes the token from localStorage
+      localStorage.removeItem('token')
 
-      $http.post(rootUrl + '/users/login',
-        { user: {username: self.loginUsername, password: self.loginPassword }}
-      )
-      .then(function(response) {
-        console.log(response.data);
+      $state.go('index', {url: '/'})
+    }
 
-        //newService.id = response.data.user.user.id;
-
-        //go to the dashboard
-        //$state.go.('/dashboard');
-
-        //clear the form
-        this.loginUsername = '';
-        this.loginPassword = '';
-      })
-      .catch(function(err) {
-        console.log('err',err);
-      });
-    }; //this.login
-  }
-    /*
-    POST	/users/login
-    POST	/users/logoff
-    POST	/users
-    */
+    this.login = login;
+    this.signup = signup;
+    this.logout = logout;
+  } //end UsersController
 })();

@@ -5,13 +5,13 @@
   FishRouter.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
   function FishRouter($stateProvider, $urlRouterProvider, $locationProvider) {
-    $urlRouterProvider.otherwise("/createTrip");
+    $urlRouterProvider.otherwise("/");
 
     $stateProvider
-    // .state('login', {
-    //   url: '/',
-    //   templateUrl: '/partials/login.html'
-    // })
+    .state('login', {
+      url: '/',
+      templateUrl: '/partials/login.html'
+    })
     .state('createTrip', {
       url: '/createTrip',
       templateUrl: '/partials/trips/create.html'

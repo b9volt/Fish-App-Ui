@@ -6,7 +6,7 @@
 
   function TripsController($http, $window, $location, chartService, userIdService) {
     var self = this;
-    var rootUrl = 'http://localhost:3000/'
+    var rootUrl = 'http://localhost:3000/';
 
     this.tripData = [];
     this.test = chartService.foo("The Fish Team is Cool!");
@@ -26,20 +26,6 @@
 
     this.createTrip = function() {
       console.log('Hello from this.createTrip');
-
-
-       // {newLocation:"loc","num_of_fish":"3","clientsHappy":true,"rating":4,"summary":"sum","start":"2016","end":"2016"}
-
-      // var dataFromForm ={
-      //   location:"hard-coded location",
-      //   num_of_fish:"3",
-      //   clientsHappy:true,
-      //   rating:4,
-      //   summary:"sum",
-      //   start:"2016-02-02",
-      //   end:"2016-02-02",
-      //   user_id: self.loggedInUserId
-      // };
 
       self.newTrip.user_id = self.loggedInUserId;
 
