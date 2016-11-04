@@ -11,11 +11,11 @@
     this.tripData = [];
     this.test = chartService.foo("The Fish Team is Cool!");
 
-    this.foo = userIdService.id;
+    this.loggedInUserId = userIdService.id;
 
     getAllTrips = function(){
-      //$http.get(rootUrl + '/users/' + newService.id + '/trips')
-      $http.get(rootUrl + '/users/1/trips')
+      $http.get(rootUrl + '/users/' + self.loggedInUserId + '/trips')
+      //$http.get(rootUrl + '/users/1/trips')
         .then(function(response) {
           self.tripData = response.data.trip;
         })
@@ -31,19 +31,18 @@
        // {newLocation:"loc","num_of_fish":"3","clientsHappy":true,"rating":4,"summary":"sum","start":"2016","end":"2016"}
 
       var dataFromForm ={
-        newLocation:"loc",
+        location:"hard-coded location",
         num_of_fish:"3",
         clientsHappy:true,
         rating:4,
         summary:"sum",
         start:"2016-02-02",
-        end:"2016-02-02"
+        end:"2016-02-02",
+        user_id: self.loggedInUserId
       };
 
-      var dataToSend = {trip: dataFromForm};
-
-      $http.post(rootUrl + '/users/1/trips',
-      {dataToSend}
+      $http.post(rootUrl + '/users/' + self.loggedInUserId + '/trips',
+      { trip: dataFromForm }
       )
         .catch(function(err) {
           console.log('err',err);
