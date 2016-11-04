@@ -1,4 +1,5 @@
 (function() {
+  //trips is included so it can change states
   angular.module('FishBiApp',['ui.router', 'trips'])
     .config(FishRouter);
 

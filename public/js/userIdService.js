@@ -10,7 +10,19 @@
 
 
   function userIdService(){
-    this.id = 2;
+
+    this.id = 0;
+    // var id = null;
+    //
+    // //http://stackoverflow.com/questions/18856153/how-can-i-pass-some-data-from-one-controller-to-another-peer-controller
+    // return {
+    //   getId: function () {
+    //       return _id;
+    //   },
+    //   setId: function (value) {
+    //       _id = value;
+    //   }
+    // };
 
   } //end userIdService
 })();
