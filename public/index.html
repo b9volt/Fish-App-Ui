@@ -30,20 +30,15 @@
     <!-- <header class="col-md-6 col-sm-12"> -->
             Angular is working: {{ 1 === 1 }}
       <h1>Welcome to BITE!</h1>
+      <nav>
+        <li><a ui-sref="dashboard">dashboard</a></li>
+        <li><a ui-sref="createTrip">createTrip</a></li>
+        <li><a ui-sref="editTrip">editTrip</a></li>
+        <!-- <li><a ui-sref="dashboard">dashboard</a></li>
+        <li><a ui-sref="dashboard">dashboard</a></li> -->
+      </nav>
     </header>
     <main>
-      <div>
-        <nav>
-          <a href="#">Sign Up</a>
-          <a href="#">Login</a>
-        </nav>
-      </div>
-      <div>
-        <nav>
-          <a href="Home">Home</a>
-          <a href="Logoff">Logoff</a>
-        </nav>
-      </div>
       <section ui-view></section>
 
       <!-- {{ trips.tripData }} -->
