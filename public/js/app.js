@@ -8,9 +8,13 @@
     $urlRouterProvider.otherwise("/");
 
     $stateProvider
-    .state('login', {
+    // .state('login', {
+    //   url: '/',
+    //   templateUrl: '/partials/login.html'
+    // })
+    .state('dashboard', {
       url: '/',
-      templateUrl: '/partials/login.html'
+      templateUrl: '/partials/dashboard.html'
     });
 
   }
