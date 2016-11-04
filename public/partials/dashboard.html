@@ -1,8 +1,15 @@
-Hello From Dashboard
-<table class="columns">
-  <tr>
-    <td><div id="Customer_chart_div"></div></td>
-    <td><div id="location_chart_div" style="width: 900px; height: 500px;"></div></td>
-  </tr>
-</table>
-<div id="chart_div" style="margin: auto; width: 100%; height: 200px;"></div>
+<section ng-controller="TripsController as trips" ng-init="trips.getAllTrips()">
+  Hello From Dashboard
+  <h3>trips.loggedInUserId is {{ trips.loggedInUserId }}</h3>
+  <table class="columns">
+    <tr>
+      <td><div id="Customer_chart_div"></div></td>
+      <td><div id="location_chart_div" style="width: 900px; height: 500px;"></div></td>
+    </tr>
+  </table>
+  <div id="chart_div" style="margin: auto; width: 100%; height: 200px;"></div>
+  <!-- {{ trips.tripData }} -->
+  <ul>
+      <li ng-repeat="looperName in trips.tripData"> {{ looperName.start }} {{ looperName.summary | limitTo: 20}} </li>
+  </ul>
+</section>

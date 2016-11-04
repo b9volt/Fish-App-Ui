@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="FishBiApp">
   <head>
+    <!-- Google charts -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <!-- Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js" charset="utf-8"></script>
@@ -18,33 +19,29 @@
       <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script> -->
 
     <script src="./js/app.js" charset="utf-8"></script>
-    <script src="./js/dashboard.js" charset="utf-8"></script>
+    <script src="./js/usersController.js" charset="utf-8"></script>
+    <script src="./js/chartService.js" charset="utf-8"></script>
+    <script src="./js/userIdService.js" charset="utf-8"></script>
     <script src="./js/tripsController.js" charset="utf-8"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>BITE! | Fishing App</title>
   </head>
-  <body ng-controller="TripsController as trips">
-    <header class="col-md-6 col-sm-12">
+  <body>
+    <header>
+    <!-- <header class="col-md-6 col-sm-12"> -->
             Angular is working: {{ 1 === 1 }}
-      <h1>Welcome to BITE, {{ trips.test }}!</h1>
+            
+      <h1>Welcome to BITE!</h1>
+      <nav>
+        <li><a ui-sref="dashboard">dashboard</a></li>
+        <li><a ui-sref="createTrip">createTrip</a></li>
+        <li><a ui-sref="editTrip">editTrip</a></li>
+      </nav>
     </header>
     <main>
-      <div>
-        <nav>
-          <a href="#">Sign Up</a>
-          <a href="#">Login</a>
-        </nav>
-      </div>
-      <div>
-        <nav>
-          <a href="Home">Home</a>
-          <a href="Logoff">Logoff</a>
-        </nav>
-      </div>
-      <section ui-view></section>
 
-      <!-- {{ trips.tripData }} -->
+      <section ui-view></section>
     </main>
     <footer><p>"Good luck out there, and don't let the Megalodon eat ya' fer dinner!"</p></footer>
   </body>
