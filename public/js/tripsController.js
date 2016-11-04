@@ -30,19 +30,21 @@
 
        // {newLocation:"loc","num_of_fish":"3","clientsHappy":true,"rating":4,"summary":"sum","start":"2016","end":"2016"}
 
-      var dataFromForm ={
-        location:"hard-coded location",
-        num_of_fish:"3",
-        clientsHappy:true,
-        rating:4,
-        summary:"sum",
-        start:"2016-02-02",
-        end:"2016-02-02",
-        user_id: self.loggedInUserId
-      };
+      // var dataFromForm ={
+      //   location:"hard-coded location",
+      //   num_of_fish:"3",
+      //   clientsHappy:true,
+      //   rating:4,
+      //   summary:"sum",
+      //   start:"2016-02-02",
+      //   end:"2016-02-02",
+      //   user_id: self.loggedInUserId
+      // };
+
+      self.newTrip.user_id = self.loggedInUserId;
 
       $http.post(rootUrl + '/users/' + self.loggedInUserId + '/trips',
-      { trip: dataFromForm }
+      { trip: self.newTrip }
       )
         .catch(function(err) {
           console.log('err',err);

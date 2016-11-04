@@ -15,7 +15,7 @@
       -->
       <div>
         <label for="location">Location</label>
-        <input type="text" ng-model="trips.newTrip.newLocation">
+        <input type="text" ng-model="trips.newTrip.location">
       </div>
       <div class="row">
         <div class="col-md-8 col-offset-2">
@@ -43,12 +43,11 @@
         <label for="end">End of Trip</label>
         <input type="text" ng-model="trips.newTrip.end">
       </div>
+      <div>
+        <label for="Weather">Weather summary</label>
+        <input type="text" ng-model="trips.newTrip.weather">
+      </div>
       <button type="submit">Create Trip</button>
     </form>
-        {{ trips.newTrip }}
-        tripsController.loggedInUserId is {{ trips.loggedInUserId }}
-        <br>
-        <br>
-        {{ trips.tripData }}
   </div>
 </section>
