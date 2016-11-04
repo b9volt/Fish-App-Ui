@@ -7,30 +7,28 @@
       return message;
     };
     google.charts.load('current', {'packages':['corechart']});
+
+
       google.charts.setOnLoadCallback(drawHappinesPieChart);
       google.charts.setOnLoadCallback(drawVisualization);
       google.charts.setOnLoadCallback(drawChart);
 
+
+
       function drawHappinesPieChart() {
+
+
+        var tomsChartData = [
+          ['Happy',75],
+          ['Unhappy',25]
+        ];
+
 
         // Create the data table for Customer Happy.
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Topping');
         data.addColumn('number', 'Slices');
-        data.addRows([
-          ['Jan', 3],
-          ['Feb', 2],
-          ['Mar', 3],
-          ['Apr', 4],
-          ['May', 5],
-          ['Jun', 4],
-          ['Jul', 3],
-          ['Aug', 2],
-          ['Sep', 3],
-          ['Oct', 5],
-          ['Nov', 4],
-          ['Dec', 2]
-        ]);
+        data.addRows(tomsChartData);
 
         // Set options for Sarah's pie chart.
         var options = {title:'Customer Happy',
@@ -41,6 +39,16 @@
         var chart = new google.visualization.PieChart(document.getElementById('Customer_chart_div'));
         chart.draw(data, options);
       }
+
+
+
+
+
+
+
+
+
+
 
       // Callback that draws the pie chart for Anthony's pizza.
       function drawVisualization() {
