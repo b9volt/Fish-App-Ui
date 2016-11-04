@@ -13,7 +13,7 @@
     }};
 
     this.tripData = [];
-    this.test = chartService.foo("The Fish Team is Cool!");
+    this.editedTrip = {};
 
     this.loggedInUserId = userIdService.id;
 
@@ -43,7 +43,12 @@
         });
 
     }; //end this.createTrip
+    this.editTrip = function(trip) {
+      console.log(trip);
+      self.editedTrip = trip;
+      $state.go('editTrip', {url: '/editTrip'});
 
+    };
     /*
     POST	/users/login
     POST	/users/logoff
