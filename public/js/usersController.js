@@ -40,7 +40,10 @@
       .then(function(response) {
         console.log(response.data);
 
-        //$state.go.asdfasdfasfdasdfsdf
+        //newService.id = response.data.user.user.id;
+
+        //go to the dashboard
+        //$state.go.('/dashboard');
 
         //clear the form
         this.loginUsername = '';
