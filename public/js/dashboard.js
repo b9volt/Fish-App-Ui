@@ -9,7 +9,7 @@
     google.charts.load('current', {'packages':['corechart']});
 
 
-      //google.charts.setOnLoadCallback(drawHappinesPieChart);
+      google.charts.setOnLoadCallback(drawHappinesPieChart);
       google.charts.setOnLoadCallback(drawVisualization);
       google.charts.setOnLoadCallback(drawChart);
 

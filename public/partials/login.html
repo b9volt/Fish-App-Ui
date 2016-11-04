@@ -1,4 +1,5 @@
-<div>
+<section ng-controller="UsersController as users">
+  {{ users.test }}
   <form ng-submit="auth.login(userPass)">
     <div class ="">
       <label for="username">username</label>
@@ -23,4 +24,4 @@
     </div>
     <button type="submit">Register</button>
   </form>
-</div>
+</section>

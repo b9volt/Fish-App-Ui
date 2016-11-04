@@ -9,7 +9,7 @@
     var rootUrl = 'http://localhost:3000/'
 
     this.tripData = [];
-    this.test = chartService.foo("Brad and Tom are Cool!");
+    this.test = chartService.foo("The Fish Team is Cool!");
 
     this.foo = 'asdfasd'
 
