@@ -1,26 +1,26 @@
 <section ng-controller="UsersController as users">
   {{ users.test }}
-  <form ng-submit="auth.login(userPass)">
+  <form ng-submit="users.login(userPass)">
     <div class ="">
       <label for="username">username</label>
-      <input type="text" ng-model="userPass.username">
+      <input type="text" ng-model="userPass.loginUsername">
     </div>
     <div>
       <label for="password">password</label>
-      <input type="password" ng-model="userPass.password">
+      <input type="password" ng-model="userPass.loginPassword">
     </div>
     <button type="submit">login</button>
   </form>
 </div>
 <div>
-  <form ng-submit="auth.signup(userPass)">
+  <form ng-submit="users.signup()">
     <div>
       <label for="username">username</label>
-      <input type="text" ng-model="userPass.username">
+      <input type="text" ng-model="users.signupUsername">
     </div>
     <div>
       <label for="password">password</label>
-      <input type="password" ng-model="userPass.password">
+      <input type="password" ng-model="users.signupPassword">
     </div>
     <button type="submit">Register</button>
   </form>
