@@ -1,6 +1,6 @@
-<div>
-  <form ng-submit="auth.login(userPass)">
-    <div class ="">
+<section ng-controller="UsersController as users">
+  <form ng-submit="users.login(userPass)">
+    <div>
       <label for="username">username</label>
       <input type="text" ng-model="userPass.username">
     </div>
@@ -10,9 +10,7 @@
     </div>
     <button type="submit">login</button>
   </form>
-</div>
-<div>
-  <form ng-submit="auth.signup(userPass)">
+  <form ng-submit="users.signup(userPass)">
     <div>
       <label for="username">username</label>
       <input type="text" ng-model="userPass.username">
@@ -21,6 +19,6 @@
       <label for="password">password</label>
       <input type="password" ng-model="userPass.password">
     </div>
-    <button type="submit">Register</button>
+    <button type="submit">Add User</button>
   </form>
-</div>
+</section>

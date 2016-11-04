@@ -1,5 +1,6 @@
 (function() {
-  angular.module('FishBiApp',['ui.router'])
+  //trips is included so it can change states
+  angular.module('FishBiApp',['ui.router', 'trips'])
     .config(FishRouter);
 
   FishRouter.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
@@ -11,6 +12,18 @@
     .state('login', {
       url: '/',
       templateUrl: '/partials/login.html'
+    })
+    .state('createTrip', {
+      url: '/createTrip',
+      templateUrl: '/partials/trips/create.html'
+    })
+    .state('dashboard', {
+      url: '/dashboard',
+      templateUrl: '/partials/dashboard.html'
+    })
+    .state('editTrip', {
+      url: '/editTrip',
+      templateUrl: '/partials/trips/edit.html'
     });
 
   }
