@@ -1,4 +1,4 @@
-<section ng-controller="TripsController as trips">
+<section ng-controller="TripsController as trips" ng-init="trips.getAllTrips()">
   Hello From Dashboard
   <h3>trips.loggedInUserId is {{ trips.loggedInUserId }}</h3>
   <table class="columns">
@@ -8,7 +8,8 @@
     </tr>
   </table>
   <div id="chart_div" style="margin: auto; width: 100%; height: 200px;"></div>
+  <!-- {{ trips.tripData }} -->
   <ul>
-      <li ng-repeat="looperName in trips.tripData"> {{ looperName.start }} </li>
+      <li ng-repeat="looperName in trips.tripData"> {{ looperName.start }} {{ looperName.summary | limitTo: 20}} </li>
   </ul>
 </section>

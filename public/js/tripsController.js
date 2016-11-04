@@ -13,7 +13,7 @@
 
     this.loggedInUserId = userIdService.id;
 
-    getAllTrips = function(){
+    this.getAllTrips = function(){
       $http.get(rootUrl + '/users/' + self.loggedInUserId + '/trips')
       //$http.get(rootUrl + '/users/1/trips')
         .then(function(response) {
@@ -52,9 +52,6 @@
     PATCH	/users/:user_id/trips/:id
     DELETE	/users/:user_id/trips/:id
     */
-
-
-    getAllTrips();
 
   } //end TripsController
 })();
