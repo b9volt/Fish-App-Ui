@@ -10,6 +10,6 @@
   <div id="chart_div" style="margin: auto; width: 100%; height: 200px;"></div>
   <!-- {{ trips.tripData }} -->
   <ul>
-      <li ng-repeat="looperName in trips.tripData"> {{ looperName.start }} {{ looperName.summary | limitTo: 20}} </li>
+      <li ng-repeat="looperName in trips.tripData" ng-click="trips.editTrip(looperName)"> {{ looperName.start }} {{ looperName.summary | limitTo: 20}} </li>
   </ul>
 </section>
