@@ -3,7 +3,9 @@
   .service('chartService', chartService);
 
   function chartService(){
-    this.foo = "hello World";
+    this.foo = function(message){
+      return message;
+    };
     google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawHappinesPieChart);
       google.charts.setOnLoadCallback(drawVisualization);

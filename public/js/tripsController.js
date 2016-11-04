@@ -9,7 +9,7 @@
     var rootUrl = 'http://localhost:3000/'
 
     this.tripData = [];
-    this.test = chartService.foo;
+    this.test = chartService.foo("Brad and Tom are Cool!");
 
     getAllTrips = function(){
       $http.get(rootUrl + '/users/1/trips')
