@@ -1,9 +1,15 @@
-google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawCustomerChart);
+(function(){
+  angular.module('FishBiApp')
+  .service('chartService', chartService);
+
+  function chartService(){
+    this.foo = "hello World";
+    google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawHappinesPieChart);
       google.charts.setOnLoadCallback(drawVisualization);
       google.charts.setOnLoadCallback(drawChart);
 
-      function drawCustomerChart() {
+      function drawHappinesPieChart() {
 
         // Create the data table for Customer Happy.
         var data = new google.visualization.DataTable();
@@ -91,3 +97,5 @@ google.charts.load('current', {'packages':['corechart']});
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
         chart.draw(data, options);
       }
+  } //End of Chart Service
+})();
