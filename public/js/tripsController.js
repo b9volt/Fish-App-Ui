@@ -34,7 +34,7 @@
     */
 
 
-    getAllTrips();
+    // getAllTrips();
 
   } //end TripsController
 })();
