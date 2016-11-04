@@ -8,14 +8,17 @@
     var self = this;
     var rootUrl = 'http://localhost:3000/';
 
+    this.headerInfo = { headers: {
+      'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+    }};
+
     this.tripData = [];
     this.test = chartService.foo("The Fish Team is Cool!");
 
     this.loggedInUserId = userIdService.id;
 
     this.getAllTrips = function(){
-      $http.get(rootUrl + '/users/' + self.loggedInUserId + '/trips')
-      //$http.get(rootUrl + '/users/1/trips')
+      $http.get(rootUrl + '/users/' + self.loggedInUserId + '/trips', self.headerInfo)
         .then(function(response) {
           self.tripData = response.data.trip;
         })
@@ -30,7 +33,7 @@
       self.newTrip.user_id = self.loggedInUserId;
 
       $http.post(rootUrl + '/users/' + self.loggedInUserId + '/trips',
-      { trip: self.newTrip }
+      { trip: self.newTrip }, self.headerInfo
       )
         .catch(function(err) {
           console.log('err',err);
