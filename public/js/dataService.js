@@ -1,15 +1,15 @@
 (function(){
   angular.module('FishBiApp')
-  .service('userIdService', userIdService);
+  .service('dataService', dataService);
 
   /**
-   * userIdService does one thing: it passes the user ID from usersController to
+   * dataService does one thing: it passes the user ID from usersController to
    * tripsController.
    */
 
 
 
-  function userIdService(){
+  function dataService(){
 
     this.id = 0;
     // var id = null;
@@ -24,5 +24,5 @@
     //   }
     // };
 
-  } //end userIdService
+  } //end dataService
 })();

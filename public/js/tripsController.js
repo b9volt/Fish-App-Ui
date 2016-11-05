@@ -2,9 +2,9 @@
   angular.module('trips',['ui.router'])
     .controller('TripsController', TripsController);
 
-  TripsController.$inject = ['$http', '$window', '$location', 'chartService', 'userIdService', '$state'];
+  TripsController.$inject = ['$http', '$window', '$location', 'chartService', 'dataService', '$state'];
 
-  function TripsController($http, $window, $location, chartService, userIdService, $state) {
+  function TripsController($http, $window, $location, chartService, dataService, $state) {
     var self = this;
     var rootUrl = 'http://localhost:3000/';
 
@@ -12,10 +12,11 @@
       'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token'))
     }};
 
-    this.tripData = [];
-    this.editedTrip = {};
+    // this.tripData = [];
+    // this.showTrip = {};
+    // this.enableEdit = false;
 
-    this.loggedInUserId = userIdService.id;
+    this.loggedInUserId = dataService.id;
 
     this.getAllTrips = function(){
       $http.get(rootUrl + '/users/' + self.loggedInUserId + '/trips', self.headerInfo)
@@ -28,7 +29,6 @@
     };
 
     this.createTrip = function() {
-      console.log('Hello from this.createTrip');
 
       self.newTrip.user_id = self.loggedInUserId;
 
@@ -43,11 +43,22 @@
         });
 
     }; //end this.createTrip
-    this.editTrip = function(trip) {
-      console.log(trip);
-      self.editedTrip = trip;
-      $state.go('editTrip', {url: '/editTrip'});
 
+    this.editTrip = function(trip) {
+      console.log('trip is ', trip);
+      self.showTrip = trip;
+      console.log('self.showTrip is ', self.showTrip);
+      $state.go('editTrip', {url: '/editTrip'});
+    };
+
+
+
+    this.goToDashboard = function() {
+      $state.go('dashboard', {url: '/dashboard'});
+    };
+
+    this.toggleEdit = function() {
+      self.enableEdit = !self.enableEdit;
     };
     /*
     POST	/users/login
