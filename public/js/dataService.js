@@ -16,7 +16,6 @@
     if (this.id === 0) {
       this.tripData = [];
       this.showTrip = {};
-      this.disableEdit = true;
     }
     // var id = null;
     //
