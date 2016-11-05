@@ -28,16 +28,15 @@
     <title>BITE! | Fishing App</title>
   </head>
   <body>
-    <header>
-    <!-- <header class="col-md-6 col-sm-12"> -->
-            Angular is working: {{ 1 === 1 }}
-
+    <header ng-controller="UsersController as users">
       <h1>Welcome to BITE!</h1>
       <nav>
         <li><a ui-sref="dashboard">dashboard</a></li>
         <li><a ui-sref="createTrip">createTrip</a></li>
         <li><a ui-sref="editTrip">editTrip</a></li>
       </nav>
+      <!-- This part of the page only loads once: when the page initially  -->
+      <button type="button" name="logoff" ng-click="users.logoff()">Log off</button>
     </header>
     <main>
 
