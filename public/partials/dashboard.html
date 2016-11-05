@@ -9,7 +9,11 @@
   </table>
   <div id="chart_div" style="margin: auto; width: 100%; height: 200px;"></div>
   <!-- {{ trips.tripData }} -->
+  <h2>Here's a list of your trips</h2>
+  <p>
+    To see more information about a trip, please click on it.
+  </p>
   <ul>
-      <li ng-repeat="looperName in trips.tripData"> {{ looperName.start }} {{ looperName.summary | limitTo: 20}} </li>
+      <li ng-repeat="looperName in trips.tripData" ng-click="trips.goToShowPage(looperName)"> {{ looperName.start | date : 'shortDate' }} {{ looperName.location }} {{ looperName.summary | limitTo: 20}} </li>
   </ul>
 </section>
