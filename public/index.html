@@ -28,7 +28,7 @@
     <title>BITE! | Fishing App</title>
   </head>
   <body>
-    <header>
+    <header ng-controller="UsersController as users">
     <!-- <header class="col-md-6 col-sm-12"> -->
             Angular is working: {{ 1 === 1 }}
 
@@ -38,6 +38,7 @@
         <li><a ui-sref="createTrip">createTrip</a></li>
         <li><a ui-sref="editTrip">editTrip</a></li>
       </nav>
+      <button type="button" name="logoff" ></button>
     </header>
     <main>
 
