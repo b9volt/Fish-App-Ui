@@ -2,9 +2,9 @@
   angular.module('trips',['ui.router'])
     .controller('TripsController', TripsController);
 
-  TripsController.$inject = ['$http', '$window', '$location', 'chartService', 'userIdService', '$state'];
+  TripsController.$inject = ['$http', '$window', '$location', 'chartService', 'dataService', '$state'];
 
-  function TripsController($http, $window, $location, chartService, userIdService, $state) {
+  function TripsController($http, $window, $location, chartService, dataService, $state) {
     var self = this;
     var rootUrl = 'http://localhost:3000/';
 
@@ -12,10 +12,11 @@
       'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token'))
     }};
 
-    this.tripData = [];
-    this.editedTrip = {};
+    this.tripData = dataService.tripData;
+    this.showTrip = dataService.showTrip;
+    this.disableEdit = dataService.disableEdit;
 
-    this.loggedInUserId = userIdService.id;
+    this.loggedInUserId = dataService.id;
 
     this.getAllTrips = function(){
       $http.get(rootUrl + '/users/' + self.loggedInUserId + '/trips', self.headerInfo)
@@ -28,7 +29,6 @@
     };
 
     this.createTrip = function() {
-      console.log('Hello from this.createTrip');
 
       self.newTrip.user_id = self.loggedInUserId;
 
@@ -43,11 +43,51 @@
         });
 
     }; //end this.createTrip
-    this.editTrip = function(trip) {
-      console.log(trip);
-      self.editedTrip = trip;
-      $state.go('editTrip', {url: '/editTrip'});
 
+    this.deleteTrip = function() {
+      console.log('Hello from this.deleteTrip');
+
+      $http.delete(rootUrl + '/users/' + self.loggedInUserId + '/trips/' + self.showTrip.id,
+                  self.headerInfo
+      )
+        .catch(function(err) {
+          console.log('err',err);
+        })
+        .then(function(response) {
+
+          //in a future version, remove the trip from self.tripData
+
+          //in this version, just make a request to the server
+          self.getAllTrips();
+
+          self.saveDataToDataService();
+          $state.go('dashboard', {url: '/dashboard'});
+        });
+    }; //end this.deleteTrip
+
+    this.editTrip = function(trip) {
+      console.log('trip is ', trip);
+      self.showTrip = trip;
+      console.log('self.showTrip is ', self.showTrip);
+      self.saveDataToDataService();
+      $state.go('editTrip', {url: '/editTrip'});
+    };
+
+
+
+    this.goToDashboard = function() {
+      self.saveDataToDataService();
+      $state.go('dashboard', {url: '/dashboard'});
+    };
+
+    this.saveDataToDataService = function() {
+      dataService.tripData = self.tripData;
+      dataService.showTrip = self.showTrip;
+      dataService.disableEdit = self.disableEdit;
+    };
+
+    this.toggleEdit = function() {
+      self.disableEdit = !self.disableEdit;
     };
     /*
     POST	/users/login

@@ -2,9 +2,9 @@
   angular.module('FishBiApp')
     .controller('UsersController', UsersController);
 
-  UsersController.$inject = ['$http', '$state', '$stateParams','userIdService'];
+  UsersController.$inject = ['$http', '$state', '$stateParams','dataService'];
 
-  function UsersController($http, $state, $stateParams, userIdService)  {
+  function UsersController($http, $state, $stateParams, dataService)  {
     var self = this;
     var rootUrl = 'http://localhost:3000/';
 
@@ -15,7 +15,7 @@
 
           localStorage.setItem('token', JSON.stringify(response.data.token))
           console.log('self.user is: ', self.user);
-          userIdService.id = self.user.id;
+          dataService.id = self.user.id;
           $state.go('dashboard', {url: '/dashboard'});
         })
         .catch((err) => {
