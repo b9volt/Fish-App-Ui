@@ -1,8 +1,8 @@
 (function(){
   angular.module('FishBiApp')
-  .service('chartService', chartService);
+  .controller('ChartsController', ChartsController);
 
-  function chartService(){
+  function ChartsController(){
     this.foo = function(message){
       return message;
     };

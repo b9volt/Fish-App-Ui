@@ -2,9 +2,9 @@
   angular.module('trips',['ui.router'])
     .controller('TripsController', TripsController);
 
-  TripsController.$inject = ['$http', '$window', '$location', 'chartService', 'dataService', '$state'];
+  TripsController.$inject = ['$http', '$window', '$location', 'dataService', '$state'];
 
-  function TripsController($http, $window, $location, chartService, dataService, $state) {
+  function TripsController($http, $window, $location, dataService, $state) {
     var self = this;
     var rootUrl = 'http://localhost:3000/';
 
