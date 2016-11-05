@@ -6,7 +6,7 @@
 
   function TripsController($http, $window, $location, dataService, $state) {
     var self = this;
-    var rootUrl = 'http://localhost:3000/';
+    var rootUrl = 'https://radiant-scrubland-61785.herokuapp.com/';
 
     this.headerInfo = { headers: {
       'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token'))

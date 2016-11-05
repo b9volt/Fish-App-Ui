@@ -6,7 +6,7 @@
 
   function UsersController($http, $state, $stateParams, dataService)  {
     var self = this;
-    var rootUrl = 'http://localhost:3000/';
+    var rootUrl = 'https://radiant-scrubland-61785.herokuapp.com/';
 
     function login(userPass) {
       $http.post(`${rootUrl}users/login`, {user: {username: userPass.username, password: userPass.password}})
