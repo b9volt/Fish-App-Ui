@@ -44,6 +44,27 @@
 
     }; //end this.createTrip
 
+    this.deleteTrip = function() {
+      console.log('Hello from this.deleteTrip');
+
+      $http.delete(rootUrl + '/users/' + self.loggedInUserId + '/trips/' + self.showTrip.id,
+                  self.headerInfo
+      )
+        .catch(function(err) {
+          console.log('err',err);
+        })
+        .then(function(response) {
+
+          //in a future version, remove the trip from self.tripData
+
+          //in this version, just make a request to the server
+          self.getAllTrips();
+
+          self.saveDataToDataService();
+          $state.go('dashboard', {url: '/dashboard'});
+        });
+    }; //end this.deleteTrip
+
     this.editTrip = function(trip) {
       console.log('trip is ', trip);
       self.showTrip = trip;
