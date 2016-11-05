@@ -12,9 +12,9 @@
       'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token'))
     }};
 
-    // this.tripData = [];
-    // this.showTrip = {};
-    // this.enableEdit = false;
+    this.tripData = dataService.tripData;
+    this.showTrip = dataService.showTrip;
+    this.disableEdit = dataService.disableEdit;
 
     this.loggedInUserId = dataService.id;
 
@@ -48,17 +48,25 @@
       console.log('trip is ', trip);
       self.showTrip = trip;
       console.log('self.showTrip is ', self.showTrip);
+      self.saveDataToDataService();
       $state.go('editTrip', {url: '/editTrip'});
     };
 
 
 
     this.goToDashboard = function() {
+      self.saveDataToDataService();
       $state.go('dashboard', {url: '/dashboard'});
     };
 
+    this.saveDataToDataService = function() {
+      dataService.tripData = self.tripData;
+      dataService.showTrip = self.showTrip;
+      dataService.disableEdit = self.disableEdit;
+    };
+
     this.toggleEdit = function() {
-      self.enableEdit = !self.enableEdit;
+      self.disableEdit = !self.disableEdit;
     };
     /*
     POST	/users/login
