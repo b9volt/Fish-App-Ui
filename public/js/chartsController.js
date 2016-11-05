@@ -1,11 +1,20 @@
 (function(){
   angular.module('FishBiApp')
-  .service('chartService', chartService);
+  .controller('ChartsController', ChartsController);
 
-  function chartService(){
-    this.foo = function(message){
-      return message;
-    };
+  ChartsController.$inject = ['dataService'];
+
+
+  function ChartsController(dataService){
+
+    /**
+     * We want the charts positioned above the list of trips.  This presents an issue on the first
+     * load: load order is from top to bottom, so the charts load and then we load TripsController, (which gets the data from the 
+     * database)
+     */
+    this.tripData = dataService.tripData;
+
+
     google.charts.load('current', {'packages':['corechart']});
 
 

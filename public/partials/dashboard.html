@@ -1,19 +1,22 @@
-<section ng-controller="TripsController as trips" ng-init="trips.getAllTrips()">
+<section>
   Hello From Dashboard
-  <h3>trips.loggedInUserId is {{ trips.loggedInUserId }}</h3>
-  <table class="columns">
-    <tr>
-      <td><div id="Customer_chart_div"></div></td>
-      <td><div id="location_chart_div" style="width: 900px; height: 500px;"></div></td>
-    </tr>
-  </table>
-  <div id="chart_div" style="margin: auto; width: 100%; height: 200px;"></div>
-  <!-- {{ trips.tripData }} -->
-  <h2>Here's a list of your trips</h2>
-  <p>
-    To see more information about a trip, please click on it.
-  </p>
-  <ul>
-      <li ng-repeat="looperName in trips.tripData" ng-click="trips.editTrip(looperName)"> {{ looperName.start | date : 'shortDate' }} {{ looperName.location }} {{ looperName.summary | limitTo: 20}} </li>
-  </ul>
+  <section ng-controller="ChartsController as charts">
+    {{ charts.tripData }}
+    <table class="columns">
+      <tr>
+        <td><div id="Customer_chart_div"></div></td>
+        <td><div id="location_chart_div" style="width: 900px; height: 500px;"></div></td>
+      </tr>
+    </table>
+    <div id="chart_div" style="margin: auto; width: 100%; height: 200px;"></div>
+  </section>
+  <section ng-controller="TripsController as trips" ng-init="trips.getAllTrips()">
+    <h2>Here's a list of your trips</h2>
+    <p>
+      To see more information about a trip, please click on it.
+    </p>
+    <ul>
+        <li ng-repeat="looperName in trips.tripData" ng-click="trips.goToShowPage(looperName)"> {{ looperName.start | date : 'shortDate' }} {{ looperName.location }} {{ looperName.summary | limitTo: 20}} </li>
+    </ul>
+  </section>
 </section>
