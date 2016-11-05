@@ -12,6 +12,7 @@
   function dataService(){
 
     this.id = 0;
+    this.userName = null;
 
     if (this.id === 0) {
       this.tripData = [];
