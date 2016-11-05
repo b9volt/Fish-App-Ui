@@ -11,11 +11,12 @@
     function login(userPass) {
       $http.post(`${rootUrl}users/login`, {user: {username: userPass.username, password: userPass.password}})
         .then(function(response) {
-          self.user = response.data.user
+          var user = response.data.user;
 
           localStorage.setItem('token', JSON.stringify(response.data.token))
-          console.log('self.user is: ', self.user);
-          dataService.id = self.user.id;
+          console.log('user is: ', user);
+          dataService.id = user.id;
+          dataService.userName = user.username;
           $state.go('dashboard', {url: '/dashboard'});
         })
         .catch((err) => {
@@ -35,15 +36,19 @@
         });
     }
 
-    function logout(userPass) {
-      // logout just deletes the token from localStorage
+    function logoff(userPass) {
+      // logoff just deletes the token from localStorage
       localStorage.removeItem('token')
 
       $state.go('login', {url: '/'})
     }
 
+    if (dataService.id) {
+
+    }
+    this.userName = dataService.userName;
     this.login = login;
     this.signup = signup;
-    this.logout = logout;
+    this.logoff = logoff;
   } //end UsersController
 })();
