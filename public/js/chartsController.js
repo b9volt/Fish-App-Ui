@@ -117,7 +117,7 @@
       var options = {
         title : 'Fishing Locations',
         vAxis: {title: 'Fish Caught'},
-        hAxis: {title: 'Month'},
+        hAxis: {title: 'Year'},
         seriesType: 'bars',
         series: {5: {type: 'line'}}
       };
@@ -128,7 +128,7 @@
 
     function drawLineChart() {
       var data = google.visualization.arrayToDataTable([
-        ['Month', 'Fish', 'Expenses'],
+        ['Month', 'Sales', 'Expenses'],
         ['Jan',  620,      400],
         ['Feb',  520,      460],
         ['Mar',  770,       1120],
@@ -144,7 +144,7 @@
       ]);
 
       var options = {
-        title: 'Fish Caught',
+        title: 'Profits',
         hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
         vAxis: {minValue: 0}
       };

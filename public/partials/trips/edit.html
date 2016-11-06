@@ -17,8 +17,8 @@
         <input ng-disabled="trips.disableEdit === true" type="checkbox" ng-model="trips.showTrip.clientsHappy">
       </div>
       <div>
-        <label for="rating">Rating</label>
-        <input ng-disabled="trips.disableEdit === true" type="number" ng-model="trips.showTrip.rating">
+        <label for="rating">Rating 1-5</label>
+        <input ng-disabled="trips.disableEdit === true" type="number" min="1" max="5" ng-model="trips.showTrip.rating">
       </div>
       <div>
         <label for="summary">Summary</label>

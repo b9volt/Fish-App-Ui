@@ -2,13 +2,11 @@
   Welcome to the dashboard -- the chart data may take a while to load the first time.  Please wait.
   <section ng-controller="ChartsController as charts">
     {{ charts.tripData }}
-    <table class="columns">
-      <tr>
-        <td><div id="Customer_chart_div"></div></td>
-        <td><div id="location_chart_div" style="width: 900px; height: 500px;"></div></td>
-      </tr>
-    </table>
-    <div id="chart_div" style="margin: auto; width: 100%; height: 200px;"></div>
+
+    <div id="Customer_chart_div" style="margin: auto; max-width: 600px;"></div>
+    <div id="location_chart_div" style="margin: auto; max-width: 900px;"></div>
+    <div id="chart_div" style="margin: auto; max-width: 900px;"></div>
+
   </section>
   <section ng-controller="TripsController as trips" ng-init="trips.getAllTrips()">
     <h2>Here's a list of your trips</h2>
