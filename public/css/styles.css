@@ -1,27 +1,95 @@
-body {
-  background: rgba(145, 253, 255, 0.5);
+@viewport {
+  zoom: 1.0;
+  width: device-width;
 }
 
-html {
-  font-size: 1em;
+body {
+  background: white;
 }
+
+header {
+  background-color: #003F3F;
+  color: white;
+  padding: 1em;
+}
+
+p {
+  font-size: 1.5em;
+}
+
+h1 {
+  text-align-last: center;
+}
+
+.home {
+  text-align: center;
+  padding-top: 5em;
+}
+
+nav {
+  background-color: #003F3F;
+  font-size: 24px;
+  float:right;
+  margin-top: 176px;
+}
+
+nav > button {
+  color: white;
+  font-size: 24px;
+  background-color: none;
+  background: none;
+  border: none;
+}
+
+nav > button:focus {
+  outline:0;
+  color: #EB6C02;
+}
+
+nav > button:hover {
+  color: #EB6C02;
+}
+
+.divider {
+  color: white;
+}
+
+/*html {
+  font-size: 1em;
+}*/
 
 
 /* tablet styling */
-@media screen and (min-width: 768px) {
+/*@media screen and (min-width: 768px) {
   html {
     font-size: 1.5em;
-  }
+  }*/
 
 
 
-} /* end tablet styling */
+/*} */
+/* end tablet styling */
 
 /* computer styling */
-@media screen and (min-width: 1025px) {
+/*@media screen and (min-width: 1025px) {
   html {
     font-size: 1.2em;
-  }
+  }*/
 
 
-} /* end computer styling */
+/*} */
+/* end computer styling */
+footer {
+	background-color: #003F3F;
+  color: white;
+	text-align: center;
+  padding: 1em;
+  font-family: 'Lemonada', cursive;
+  font-size: 16px;
+  position: fixed;
+  /*position: absolute;*/
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+}

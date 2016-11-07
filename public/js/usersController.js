@@ -25,11 +25,11 @@
     }
 
     function signup(userPass) {
-      $http.post(`${rootUrl}/users`, {user: {username: userPass.username, password: userPass.password }})
+      $http.post(`${rootUrl}/signup`, {user: {username: userPass.username, password: userPass.password }})
         .then(function(response) {
           console.log(response)
 
-          $state.go('login', {url: '/'})
+          $state.go('login', {url: '/login'})
         })
         .catch((err) => {
           console.log(err);

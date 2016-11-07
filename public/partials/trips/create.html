@@ -1,42 +1,44 @@
-<section ng-controller="TripsController as trips">
-  <div class="form" >
-    <h3>Enter Your New Trip Information</h3>
-    <form ng-submit="trips.createTrip()">
-      <div>
-        <label for="location">Location</label>
-        <input type="text" ng-model="trips.newTrip.location">
-      </div>
-      <div class="row">
-        <div class="col-md-8 col-offset-2">
-          <label for="num_of_fish">Number of Fish Caught</label>
-          <input type="text" ng-model="trips.newTrip.num_of_fish">
+<div class="home">
+  <section ng-controller="TripsController as trips">
+    <div class="form" >
+      <h3>Enter Your New Trip Information</h3>
+      <form ng-submit="trips.createTrip()">
+        <div>
+          <label id="label" for="location">Location</label>
+          <input type="text" ng-model="trips.newTrip.location">
         </div>
-      </div>
-      <div>
-        <label for="clientsHappy">Clients Happy?</label>
-        <input type="checkbox" ng-model="trips.newTrip.clientsHappy">
-      </div>
-      <div>
-        <label for="rating">Rating 1-5</label>
-        <input type="number" min="1" max="5" ng-model="trips.newTrip.rating">
-      </div>
-      <div>
-        <label for="summary">Summary</label>
-        <input type="text" ng-model="trips.newTrip.summary">
-      </div>
-      <div>
-        <label for="start">Start of Trip</label>
-        <input type="text" ng-model="trips.newTrip.start">
-      </div>
-      <div>
-        <label for="end">End of Trip</label>
-        <input type="text" ng-model="trips.newTrip.end">
-      </div>
-      <div>
-        <label for="Weather">Weather summary</label>
-        <input type="text" ng-model="trips.newTrip.weather">
-      </div>
-      <button type="submit">Create Trip</button>
-    </form>
-  </div>
-</section>
+        <div class="row">
+          <div class="col-md-8 col-offset-2">
+            <label id="label" for="num_of_fish">Number of Fish Caught</label>
+            <input type="text" ng-model="trips.newTrip.num_of_fish">
+          </div>
+        </div>
+        <div>
+          <label id="label" for="clientsHappy">Clients Happy?</label>
+          <input type="checkbox" ng-model="trips.newTrip.clientsHappy">
+        </div>
+        <div>
+          <label id="label" for="rating">Rating 1-5</label>
+          <input type="number" min="1" max="5" ng-model="trips.newTrip.rating">
+        </div>
+        <div>
+          <label id="label"  for="summary">Summary</label>
+          <input type="text" ng-model="trips.newTrip.summary">
+        </div>
+        <div>
+          <label id="label" for="start">Start of Trip</label>
+          <input type="text" ng-model="trips.newTrip.start">
+        </div>
+        <div>
+          <label id="label" for="end">End of Trip</label>
+          <input type="text" ng-model="trips.newTrip.end">
+        </div>
+        <div>
+          <label id="label" for="Weather">Weather summary</label>
+          <input type="text" ng-model="trips.newTrip.weather">
+        </div>
+        <button type="submit">Create Trip</button>
+      </form>
+    </div>
+  </section>
+</div>

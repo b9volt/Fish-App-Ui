@@ -9,7 +9,8 @@
     <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
 
     <!-- BOOTSTRAP -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
     <!-- CSS -->
       <link rel="stylesheet" href="/css/styles.css" media="screen" title="no title">
     <!-- MATERIALIZE  -->
@@ -25,23 +26,22 @@
     <script src="./js/tripsController.js" charset="utf-8"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>BITE! | Fishing App</title>
+    <title>BIte! | Fishing App</title>
   </head>
   <body>
-    <header ng-controller="UsersController as users">
-      <h1>Welcome to BITE!</h1>
-      <nav>
-        <li><a ui-sref="dashboard">dashboard</a></li>
-        <li><a ui-sref="createTrip">createTrip</a></li>
-        <li><a ui-sref="editTrip">editTrip</a></li>
-      </nav>
-      <!-- This part of the page only loads once: when the page initially  -->
-      <button type="button" name="logoff" ng-click="users.logoff()">Log off</button>
-    </header>
-    <main>
-
-      <section ui-view></section>
-    </main>
+    <div>
+      <header ng-controller="UsersController as users">
+        <img src="http://i.imgur.com/eQEZwKQ.png" style="width:200px;" alt="shopmate-logo"/>
+          <nav>
+            <button ui-sref-active="active" ui-sref="dashboard">dashboard</button>
+            <span class="divider">|</span>
+            <button ui-sref-active="active" ui-sref="createTrip">create trip</button>
+            <span class="divider">|</span>
+            <button ui-sref-active="active" name="logoff" ng-click="users.logoff()">log off</button>
+          </nav>
+      </header>
+      <main ui-view>></main>
+    </div>
     <footer><p>"Good luck out there, and don't let the <a href="https://en.wikipedia.org/wiki/Megalodon">Megalodon</a> eat ya' fer dinner!"</p></footer>
   </body>
 </html>

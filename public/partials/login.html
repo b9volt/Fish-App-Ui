@@ -1,5 +1,27 @@
 <section ng-controller="UsersController as users">
+<div class="home">
+  <h2>Login</h2>
   <form ng-submit="users.login(userPass)">
+    <input ng-model="userPass.username" type="text" name="username" placeholder="username">
+    <input ng-model="userPass.password" type="password" name="password" placeholder="password">
+    <button type="submit">Login</button>
+  </form>
+  <br>
+</div>
+
+<div class="home">
+  <h2>Not registered?</h2>
+  <h2>Signup</h2>
+  <form ng-submit='users.signup(userPass)'>
+    <input ng-model="userPass.username" type="text" name="username" placeholder="username">
+    <input ng-model="userPass.password" type="password" name="password" placeholder="password"><br><br>
+    <button class="btn btn-primary" type="submit">Signup</button>
+  </form>
+</div>
+
+
+
+  <!-- <form ng-submit="users.login(userPass)">
     <div>
       <label for="username">username</label>
       <input type="text" ng-model="userPass.username">
@@ -9,8 +31,8 @@
       <input type="password" ng-model="userPass.password">
     </div>
     <button type="submit">login</button>
-  </form>
-  <form ng-submit="users.signup(userPass)">
+  </form> -->
+  <!-- <form ng-submit="users.signup(userPass)">
     <div>
       <label for="username">username</label>
       <input type="text" ng-model="userPass.username">
@@ -19,6 +41,6 @@
       <label for="password">password</label>
       <input type="password" ng-model="userPass.password">
     </div>
-    <button type="submit">Add User</button>
-  </form>
-</section>
+    <button type="submit">Sign up</button>
+  </form> -->
+<!-- </section> -->
